@@ -1,16 +1,16 @@
-let p = new Promise((resolve, reject)=> {
-  let a = 1 + 2;
-  if(a==2) {
-    resolve('sucess')
-  }
-  reject('failed')
-})
+// let p = new Promise((resolve, reject)=> {
+//   let a = 1 + 2;
+//   if(a==2) {
+//     resolve('sucess')
+//   }
+//   reject('failed')
+// })
 
-p.then((message)=> {
-  console.log('This is in the then ' + message)
-}).catch((message)=> {
-  console.log('This is in the catch ' + message)
-})
+// p.then((message)=> {
+//   console.log('This is in the then ' + message)
+// }).catch((message)=> {
+//   console.log('This is in the catch ' + message)
+// })
 
 
 
@@ -55,22 +55,20 @@ function animateNav(elementArray, i) {
   elementArray[i].animate(spiralSpinning, spiralTiming)
   return 1
 }
-
 let i = 0;
 img.addEventListener('click', ()=> {
   const myPromise = new Promise((resolve, reject) => {
-    let pass = animateNav(navbar, i)
-    if(pass === 1) {
-      resolve("success")
-    }
+    let animation = animateNav(navbar, i)
+    animation.finished.then((e)=> {
+      
+      resolve('success')
+    })
   })
   myPromise.then((message)=> {
     changeNav(navbar, navAppend, i)
-    i++
+    i++;
     console.log(i, message)
   })
-
-
     
 })
 
