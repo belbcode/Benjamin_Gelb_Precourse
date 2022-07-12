@@ -20,13 +20,18 @@ const prevBtn = document.getElementById('prev')
 const nxtBtn = document.getElementById('next')
 
 let mapBox = document.getElementById('map')
+const loadWheel = document.getElementsByClassName("spin")[0]
+console.log(loadWheel)
 accessToken = 'pk.eyJ1Ijoia2Fib2ItY2FzZSIsImEiOiJjbDVoZzFsMzgwN2xmM2NvMnk0aHM2dmh5In0.Q3-H3I1XsrzM3ayYVnH8Tw';
-
+// let childNode = document.createElement('div')
+// childNode.className = "spin"
+loadWheel.hidden = true
 function getMap(i) {
     let url = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${latitudes[i]},0/300x200?access_token=${accessToken}`
     fetch(url)
     .then(response=> {
-        mapBox.src=url
+        mapBox.src=response.url
+        loadWheel.hidden = true
     })
     .catch(error=> {
 
@@ -40,6 +45,7 @@ prevBtn.disabled = true;
 
 prevBtn.addEventListener('click', ()=> {
     i--;
+    loadWheel.hidden = false
     getMap(i)
     if(i === 0) {
         prevBtn.disabled = true;
@@ -48,6 +54,7 @@ prevBtn.addEventListener('click', ()=> {
 })
 
 nxtBtn.addEventListener('click', ()=> {
+    loadWheel.hidden = false
     i++;
     getMap(i)
     if(i === latitudes.length-1) {
