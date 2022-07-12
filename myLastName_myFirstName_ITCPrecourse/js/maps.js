@@ -28,16 +28,19 @@ accessToken = 'pk.eyJ1Ijoia2Fib2ItY2FzZSIsImEiOiJjbDVoZzFsMzgwN2xmM2NvMnk0aHM2dm
 loadWheel.hidden = true
 function getMap(i) {
     let url = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${latitudes[i]},0/300x200?access_token=${accessToken}`
-    fetch(url)
-    .then(response=> {
-        mapBox.src=response.url
-        loadWheel.hidden = true
-    })
-    .catch(error=> {
-
-    })
+    loadWheel.hidden = false
+        mapBox.src=url
+        if(mapBox.complete) {
+            loadWheel.hidden=true
+        } else {
+            mapBox.addEventListener('load', ()=> {
+                loadWheel.hidden=true
+            })
+            mapBox.addEventListener('error', ()=> {
+                alert("error")
+            })
+        }
 }
-
 getMap(0)
 let i = 0;
 
@@ -45,7 +48,6 @@ prevBtn.disabled = true;
 
 prevBtn.addEventListener('click', ()=> {
     i--;
-    loadWheel.hidden = false
     getMap(i)
     if(i === 0) {
         prevBtn.disabled = true;
@@ -54,7 +56,6 @@ prevBtn.addEventListener('click', ()=> {
 })
 
 nxtBtn.addEventListener('click', ()=> {
-    loadWheel.hidden = false
     i++;
     getMap(i)
     if(i === latitudes.length-1) {
