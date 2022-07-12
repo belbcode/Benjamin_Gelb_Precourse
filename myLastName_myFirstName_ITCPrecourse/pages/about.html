@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
     <section class="page-wrapper">
@@ -16,22 +18,42 @@
         </nav>
         <div class="section-wrapper">
             <div class="sidebar">
-                <div class="card2">
-                    Contenta dasshhhhhhhhhhhgkjkljsgflakdhj edsfadfafa
+                <div id="text-content" class="card2">
+                    <div>
+                        Programming interest me because I challenges my problem-solving acumen and I find that sort of work to be engaging.
+                    </div>
+                    <div>
+                        I began learning to code in my final year at community college, where I was studying Psychology.
+                    </div>
                 </div>
-
+                <div class="card2" style="align-items: flex-start;">
+                    <div>
+                        I was born in Huntington Beach. It's a town off the southern coast of California.
+                    </div>
+                    <br>
+                    <div>
+                        I've also been to:
+                    </div>
+                    <ul>
+                        <li>Durango, Colorado</li>
+                        <li>Tel Aviv, Israel</li>
+                        <li>Los Angeles, California</li>
+                    </ul>
+                </div>
             </div>
             <div class="mainbar">
                 <div class="card2">
-                    <img src="../images/webdevpfp.png" alt="">
+                    <!-- <div id='map' style='width: 400px; height: 300px;'></div> -->
+                    <img id="map" src="" alt=":(">
                     <div class="btn-cont">
-                        <button>prev</button>
-                        <button>next</button>
+                        <button class="btn" id="prev">Prev</button>
+                        <button class="btn" id="next">Next</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script src="../js/maps.js"></script>
     <script src="../js/noWayHome.js"></script>
 </body>
 </html>
