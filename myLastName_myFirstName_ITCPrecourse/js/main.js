@@ -15,6 +15,8 @@
 
 
 //replace with your user:
+
+
 const GITHUB_URL = "https://api.github.com/users/belbcode";
 
 const img = document.querySelector('img')
@@ -58,6 +60,14 @@ function animateNav(elementArray, i) {
 }
 
 let i = 0;
+
+// if(i > 2) {
+//   for(let j = 0; j < 2; i++) {
+//     changeNav(navbar, navAppend, j)
+//     changeNav(navbar2, navAppend, j)
+//   }
+// }
+
 img.addEventListener('click', ()=> {
   const imageIndex = i;
   const myPromise = new Promise((resolve, reject) => {
@@ -99,6 +109,15 @@ img.addEventListener('click', ()=> {
 
 
 // screenWipe(img, navbar)
+
+
+let outbound = document.querySelectorAll('.out-link')
+console.log(outbound[0])
+
+// for(let i = 0; i = outbound.length; i++) {
+//   outbound[i].onclick = window.location.href ="https://www.linkedin.com/in/benjamin-gelb-b3a165245/"
+// }
+
 
 fetch(GITHUB_URL)
   .then(function(response) {

@@ -233,7 +233,7 @@ button {
 .footer-text {
   color:black;
   position:fixed;
-  top: 92.5%;
+  top: 92%;
 }
 @media screen and (max-width: 700px) {
   .page-wrapper, .section-wrapper, .navbar {   
